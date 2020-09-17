@@ -12,11 +12,11 @@ import java.util.logging.Logger;
  *
  * @author n1ko7
  */
-class Repartir implements Runnable {
+class Repartidor implements Runnable {
 
     Fabrica cocina;
     
-    public Repartir(Fabrica co) {
+    public Repartidor(Fabrica co) {
         cocina = co;
     }
 
@@ -30,13 +30,13 @@ class Repartir implements Runnable {
         try {
             Thread.sleep((long)(Math.random() * 3000));
         } catch (InterruptedException ex) {
-            Logger.getLogger(Repartir.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repartidor.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("repartidor "+Thread.currentThread().getId()+" entregó pedido. Volviendo a la sucursal..");
         try {
             Thread.sleep((long)(Math.random() * 1000));
         } catch (InterruptedException ex) {
-            Logger.getLogger(Repartir.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repartidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -28,8 +28,8 @@ public class PatioComidas {
         
         for (int i = 0; i < 20; i++) {
             switch((int)(Math.random()*2 )){
-                case 0: patio.execute(new Repartir(comeSano));break;
-                case 1: patio.execute(new Repartir(comeRico));break;
+                case 0: patio.execute(new Repartidor(comeSano));break;
+                case 1: patio.execute(new Repartidor(comeRico));break;
             }
             
         }
