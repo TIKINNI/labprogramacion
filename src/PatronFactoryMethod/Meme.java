@@ -19,6 +19,7 @@ public abstract class Meme {
     BufferedImage imagenResultante;
     int ancho;
     int alto;
+    int puntuacion = 0;
     
     
     //Metodos  
@@ -27,5 +28,9 @@ public abstract class Meme {
     public abstract int getAncho();
     
     public abstract int getAlto();
+    
+    public abstract int getPuntuacion();
+    
+    public abstract void setPuntuacion(int puntuacion);
     
 }

@@ -117,5 +117,15 @@ public class MemeParejas extends Meme {
         return alto;
     }
     
+    @Override
+    public int getPuntuacion() {
+       return puntuacion;
+    }
+
+    @Override
+    public void setPuntuacion(int puntuacion) {
+       this.puntuacion = puntuacion;
+    }
+    
    
 }

@@ -112,5 +112,15 @@ public class MemeCotidiano extends Meme{
     public int getAlto() {
         return alto;
     }
+
+    @Override
+    public int getPuntuacion() {
+       return puntuacion;
+    }
+
+    @Override
+    public void setPuntuacion(int puntuacion) {
+       this.puntuacion = puntuacion;
+    }
     
 }
