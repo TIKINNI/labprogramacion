@@ -23,15 +23,21 @@ public class PatioComidas {
         
         Fabrica comeSano = new FabricaVegana();
         Fabrica comeRico = new FabricaOmnivora();
+        /*Cambiado*/
+        Repartidor vegano = new Repartidor(comeSano);
+        Repartidor estandar = new Repartidor(comeRico);
+        /*Aca termina el cambio*/
         
         ExecutorService patio = Executors.newFixedThreadPool(10);
         
         for (int i = 0; i < 20; i++) {
             switch((int)(Math.random()*2 )){
-                case 0: patio.execute(new Repartidor(comeSano));break;
-                case 1: patio.execute(new Repartidor(comeRico));break;
+                /*Cambiado*/
+                case 0: patio.execute(vegano);break;
+                case 1: patio.execute(estandar);break;
+                /*Aca termina el cambio*/
             }
-            
+            //Nombrar diferentes metodos ademas del execute
         }
         
         try {
