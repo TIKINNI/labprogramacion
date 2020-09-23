@@ -9,10 +9,8 @@ package PatronFactoryMethod;
  *
  * @author larav
  */
-public class MemeCotidianoGenerator implements MemeGenerator{
+interface FabricaMemes{
+    //Fabrica
     
-    @Override
-    public Meme crearMeme() {
-       return new MemeCotidiano();
-    }
+   Meme crearMeme(char tipo);
 }

@@ -50,21 +50,28 @@ public class SitioMemes {
     }
     
     public static void main(String[] args){
-        MemeGenerator creador = new MemeCotidianoGenerator();
+
+        char tipoMeme = ' ';
         int eleccion, eleccion2, eleccion3, gestion=0, i=0;
         double promedio;
         Meme[] tanda = new Meme[0];
         boolean seguir;
-        /*
-        eleccion -> para usar en el menu
-        eleccion2 -> para usar en submenu de gestion
-        eleccion3 -> para usar en submenu de gestion
-        gestion -> para usar en la opcion 3
-        promedio -> para usar en submenu de gestion
-        seguir -> para usar en submenu de gestion
-        */
+
         Scanner sc = new Scanner(System.in);
         
+        System.out.println(ConsoleColors.RED+"Configurando Sistema...");
+        seguir = true;
+        while(seguir){
+            System.out.println(ConsoleColors.RED+"ELIJA LA TEMATICA DE LOS MEMES");
+            System.out.println("c. Memes Cotidianos");
+            System.out.println("p. Memes de Parejas");
+            tipoMeme = sc.next().charAt(0);
+            if(!FabricaMemesConcreto.verificar(tipoMeme)){
+                System.out.println("Opcion incorrecta. Reintente");
+            }else{
+                seguir = false;
+            }
+        }
         
         while(true){
             System.out.println("===MEME MANAGER 1.0===");
@@ -74,13 +81,14 @@ public class SitioMemes {
             System.out.println("3. Gestionar tanda");
             eleccion = sc.nextInt();
             
+            
             switch(eleccion){
                 case 1: System.out.println(ConsoleColors.BLUE+ "Viendo meme aleatorio.");
-                        verMeme(creador.crearMeme());
+                        verMeme(FabricaMemesConcreto.crearMeme(tipoMeme));
                         break;
                 case 2:
                         System.out.println(ConsoleColors.BLUE+"Descargando meme aleatorio.");
-                        descargarMeme(creador.crearMeme());
+                        descargarMeme(FabricaMemesConcreto.crearMeme(tipoMeme));
                         break;
                 case 3:
                         System.out.println("En este modulo usted podra administrar una cantidad deseada de memes");
@@ -101,7 +109,7 @@ public class SitioMemes {
                                     tanda = new Meme[gestion];
                                     i = 0;
                                     while (i != tanda.length) {
-                                        tanda[i] = creador.crearMeme();
+                                        tanda[i] = FabricaMemesConcreto.crearMeme(tipoMeme);
                                         i++;
                                     }
                                     System.out.println(ConsoleColors.BLUE+"TANDA DE: "+gestion+" MEMES CREADA.");
