@@ -9,14 +9,13 @@ package patiocomidas;
  *
  * @author n1ko7
  */
-class HamburguesaSoja implements Hamburguesa {
+public class EmpanadaCarne implements Empanada{
 
-    public HamburguesaSoja() {
+    public EmpanadaCarne() {
     }
 
     @Override
     public String toString() {
-        return "Hamburguesa Vegana.";
+        return "Empanada de carne.";
     }
-    
 }

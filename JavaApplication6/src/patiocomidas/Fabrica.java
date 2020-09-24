@@ -14,4 +14,6 @@ interface Fabrica {
     Pizza crearPizza();
     
     Hamburguesa crearHamburguesa();
+    
+    Empanada crearEmpanada();
 }

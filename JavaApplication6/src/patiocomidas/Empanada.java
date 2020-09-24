@@ -9,14 +9,8 @@ package patiocomidas;
  *
  * @author n1ko7
  */
-class HamburguesaSoja implements Hamburguesa {
+public interface Empanada {
 
-    public HamburguesaSoja() {
-    }
+    String toString();
 
-    @Override
-    public String toString() {
-        return "Hamburguesa Vegana.";
-    }
-    
 }

@@ -9,7 +9,7 @@ package patiocomidas;
  *
  * @author n1ko7
  */
-public class FabricaOmnivora implements Fabrica{
+public class FabricaOmnivora implements Fabrica {
 
     @Override
     public Pizza crearPizza() {
@@ -20,5 +20,9 @@ public class FabricaOmnivora implements Fabrica{
     public Hamburguesa crearHamburguesa() {
         return new HamburguesaCarne();
     }
-    
+
+    @Override
+    public Empanada crearEmpanada() {
+        return new EmpanadaCarne();
+    }
 }

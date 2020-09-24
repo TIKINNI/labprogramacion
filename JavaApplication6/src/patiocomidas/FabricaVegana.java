@@ -20,5 +20,9 @@ public class FabricaVegana implements Fabrica {
     public Hamburguesa crearHamburguesa() {
         return new HamburguesaSoja();
     }
-    
+
+    @Override
+    public Empanada crearEmpanada() {
+        return new EmpanadaHumita();
+    }
 }

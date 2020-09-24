@@ -23,9 +23,10 @@ class Repartidor implements Runnable {
     @Override
     public void run() {
         
-        switch((int)(Math.random()*2)){
+        switch((int)(Math.random()*3)){
             case 0: System.out.println("El repartidor "+Thread.currentThread().getId()+" esta llevando: "+cocina.crearPizza().toString()); break;
             case 1: System.out.println("El repartidor "+Thread.currentThread().getId()+" esta llevando: "+cocina.crearHamburguesa().toString()); break;
+            case 2: System.out.println("El repartidor "+Thread.currentThread().getId()+" esta llevando: "+cocina.crearEmpanada().toString()); break;
         }
         try {
             Thread.sleep((long)(Math.random() * 3000));
