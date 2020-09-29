@@ -56,7 +56,7 @@ public class SitioMemes {
         double promedio;
         Meme[] tanda = new Meme[0];
         boolean seguir;
-
+        FabricaMemes fabrica = null;
         Scanner sc = new Scanner(System.in);
         
         System.out.println(ConsoleColors.RED+"Configurando Sistema...");
@@ -66,10 +66,10 @@ public class SitioMemes {
             System.out.println("c. Memes Cotidianos");
             System.out.println("p. Memes de Parejas");
             tipoMeme = sc.next().charAt(0);
-            if(!FabricaMemesConcreto.verificar(tipoMeme)){
-                System.out.println("Opcion incorrecta. Reintente");
-            }else{
-                seguir = false;
+            switch(tipoMeme){
+                case 'c': fabrica = new FabricaMemesCotidianos(); seguir = false; break;
+                case 'p': fabrica = new FabricaMemesParejas(); seguir = false; break;
+                default: System.out.println("Opcion incorrecta");
             }
         }
         
@@ -84,11 +84,11 @@ public class SitioMemes {
             
             switch(eleccion){
                 case 1: System.out.println(ConsoleColors.BLUE+ "Viendo meme aleatorio.");
-                        verMeme(FabricaMemesConcreto.crearMeme(tipoMeme));
+                        verMeme(fabrica.crearMeme());
                         break;
                 case 2:
                         System.out.println(ConsoleColors.BLUE+"Descargando meme aleatorio.");
-                        descargarMeme(FabricaMemesConcreto.crearMeme(tipoMeme));
+                        descargarMeme(fabrica.crearMeme());
                         break;
                 case 3:
                         System.out.println("En este modulo usted podra administrar una cantidad deseada de memes");
@@ -109,7 +109,7 @@ public class SitioMemes {
                                     tanda = new Meme[gestion];
                                     i = 0;
                                     while (i != tanda.length) {
-                                        tanda[i] = FabricaMemesConcreto.crearMeme(tipoMeme);
+                                        tanda[i] = fabrica.crearMeme();
                                         i++;
                                     }
                                     System.out.println(ConsoleColors.BLUE+"TANDA DE: "+gestion+" MEMES CREADA.");

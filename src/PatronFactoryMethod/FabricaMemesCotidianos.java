@@ -9,8 +9,10 @@ package PatronFactoryMethod;
  *
  * @author larav
  */
-interface FabricaMemes{
-    //Fabrica
+public class FabricaMemesCotidianos implements FabricaMemes{
     
-   Meme crearMeme();
+    @Override
+    public Meme crearMeme() {
+       return new MemeCotidiano();
+    }
 }
